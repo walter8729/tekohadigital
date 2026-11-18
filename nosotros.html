@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros y Manual de Marca Oficial | Tekoha Digital</title>
+    <meta name="description" content="Misión, visión, valores corporativos y sistema de identidad visual normado según el Plan de Negocios FaCyT - UNI.">
+    <link rel="icon" type="image/png" href="logos/isotipo para usar con fondo claro.png">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN con Paleta Oficial Tekoha Digital del Manual de Marca) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tekoha: {
+                            sky: '#38BDF8',      /* Celeste: Tecnología, innovación, conectividad */
+                            navy: '#0F2A43',     /* Azul Profundo: Confianza, profesionalismo, estabilidad */
+                            navyDark: '#091B2C', /* Variación oscura para contrastes */
+                            teal: '#14B8A6',     /* Turquesa: Turismo, naturaleza, frescura */
+                            gold: '#D4AF7C',     /* Dorado Suave: Hospitalidad, calidez, confort */
+                            light: '#F8FAFC',    /* Blanco / Gris claro: Limpieza, equilibrio */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-sky': '0 10px 30px -5px rgba(56, 189, 248, 0.35)',
+                        'glow-gold': '0 10px 30px -5px rgba(212, 175, 124, 0.25)',
+                        'card': '0 20px 40px -15px rgba(15, 42, 67, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0F2A43;
+            overflow-x: hidden;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            background: #E2E8F0;
+            height: 8px;
+            border-radius: 999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px;
+            background-color: #38BDF8;
+            border: 3px solid #0F2A43;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background-color: #14B8A6;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tekoha-sky selection:text-tekoha-navy min-h-screen flex flex-col justify-between">
+    <!-- BARRA SUPERIOR INFORMATIVA -->
+    <div class="bg-tekoha-navyDark text-tekoha-light text-xs py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-tekoha-teal/20 text-tekoha-teal border border-tekoha-teal/30">
+                    <i class="fa-solid fa-location-dot mr-1"></i> Encarnación e Itapúa, Paraguay
+                </span>
+                <span class="hidden sm:inline text-slate-300">Transformación Digital para Hotelería, Hospedajes, Gastronomía y Turismo</span>
+            </div>
+            <div class="flex items-center space-x-4 text-slate-300">
+                <a href="demo.html" class="hover:text-tekoha-sky transition-colors"><i class="fa-solid fa-bolt mr-1 text-tekoha-gold"></i>Motor de Reservas 0% Comisión</a>
+                <span class="text-white/20">|</span>
+                <a href="contacto.html" class="hover:text-tekoha-sky transition-colors"><i class="fa-brands fa-whatsapp mr-1 text-tekoha-teal"></i>Soporte Local en Itapúa</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR PRINCIPAL (STICKY) CON LOGO OFICIAL (FONDO CLARO) -->
+    <header id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- LOGO OFICIAL TEKOHA DIGITAL (FONDO CLARO) -->
+                <a href="index.html" class="flex items-center group focus:outline-none" aria-label="Ir al Inicio - Tekoha Digital">
+                    <img src="logos/imagotipo para usar con fondo claro.png" 
+                         alt="Tekoha Digital - Hoteles, Hospedajes, Turismo, Tecnología" 
+                         class="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                </a>
+
+                <!-- MENÚ DE NAVEGACIÓN DESKTOP -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium">
+                    <a href="index.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Inicio</a>
+                    <a href="soluciones.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Soluciones</a>
+                    <a href="demo.html" class="transition-colors flex items-center gap-1.5 text-tekoha-navy font-semibold hover:text-tekoha-sky">
+                        <span class="w-2 h-2 rounded-full bg-tekoha-teal animate-ping"></span>
+                        Demo en Vivo
+                    </a>
+                    <a href="calculadora.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Calculadora ROI</a>
+                    <a href="nosotros.html" class="text-tekoha-sky font-bold border-b-2 border-tekoha-sky pb-1">Nosotros</a>
+                    <a href="planes.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Planes</a>
+                    <a href="contacto.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Contacto</a>
+                </nav>
+
+                <!-- BOTÓN DE ACCIÓN RÁPIDA / CTA -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="contacto.html" class="bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-glow-sky transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-tekoha-gold"></i>
+                        <span>Solicitar Demo</span>
+                    </a>
+                </div>
+
+                <!-- BOTÓN MENÚ MÓVIL (HAMBURGUESA) -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-tekoha-navy hover:text-tekoha-sky focus:outline-none p-2 rounded-lg" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE MÓVIL -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Inicio</a>
+            <a href="soluciones.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Soluciones</a>
+            <a href="demo.html" class="block px-3 py-2 rounded-lg text-base text-tekoha-teal bg-tekoha-teal/10 font-semibold">Demo en Vivo (Motor de Reservas)</a>
+            <a href="calculadora.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Calculadora ROI</a>
+            <a href="nosotros.html" class="block px-3 py-2 rounded-lg text-base font-medium bg-tekoha-sky/15 text-tekoha-sky font-bold">Nosotros</a>
+            <a href="planes.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Planes</a>
+            <a href="contacto.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Contacto</a>
+            <a href="contacto.html" class="block w-full text-center bg-tekoha-sky text-tekoha-navy font-heading font-bold px-4 py-3 rounded-xl shadow-md mt-2">
+                Solicitar Demo
+            </a>
+        </div>
+    </header>
+<main class="flex-grow">
+<!-- SECCIÓN: NOSOTROS (PROPÓSITO CORPORATIVO, MISIÓN, VISIÓN Y VALORES) -->
+    <section id="nosotros" class="py-16 lg:py-24 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Introducción de Quiénes Somos -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+                <div class="lg:col-span-6 space-y-5">
+                    <span class="text-xs font-bold uppercase tracking-widest text-tekoha-teal bg-tekoha-teal/10 px-3.5 py-1.5 rounded-full">
+                        Sobre Tekoha Digital • Encarnación e Itapúa
+                    </span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-tekoha-navy leading-tight">
+                        Innovación tecnológica con identidad local al servicio de la hospitalidad
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        <strong>Tekoha Digital</strong> nace en Encarnación con el propósito de impulsar la transformación digital de hoteles, posadas, alojamientos temporales y empresas gastronómicas de todo el departamento de Itapúa.
+                    </p>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Nuestro equipo combina dirección estratégica, desarrollo web especializado en experiencia de usuario (UX) y marketing digital turístico para ofrecer soluciones cercanas, modernas y rentables que conectan a los viajeros directamente con tu negocio.
+                    </p>
+                </div>
+
+                <!-- Tarjetas de Misión y Visión -->
+                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Misión -->
+                    <div class="bg-tekoha-navy text-white rounded-2xl p-7 border-b-4 border-tekoha-sky shadow-lg flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-tekoha-sky/20 text-tekoha-sky flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-tekoha-sky">Nuestro Propósito</span>
+                            <h3 class="font-heading font-bold text-xl text-tekoha-gold mt-1 mb-3">Misión</h3>
+                            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                                “Ayudar a negocios turísticos a crecer mediante sitios web modernos que atraigan clientes y generen reservas directas.”
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-white/10 text-xs text-slate-400">
+                            Crecimiento directo sin intermediarios
+                        </div>
+                    </div>
+
+                    <!-- Visión -->
+                    <div class="bg-tekoha-navy text-white rounded-2xl p-7 border-b-4 border-tekoha-teal shadow-lg flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-tekoha-teal/20 text-tekoha-teal flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-compass"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-tekoha-teal">Hacia Dónde Vamos</span>
+                            <h3 class="font-heading font-bold text-xl text-tekoha-gold mt-1 mb-3">Visión</h3>
+                            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                                “Ser una agencia referente en soluciones digitales para el sector turístico de Encarnación e Itapúa.”
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-white/10 text-xs text-slate-400">
+                            Liderazgo tecnológico regional
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOS 4 VALORES CORPORATIVOS -->
+            <div class="bg-tekoha-light rounded-3xl p-8 sm:p-10 border border-slate-200/80">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-tekoha-navy">Nuestros Pilares</span>
+                    <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-tekoha-navy mt-1">
+                        Valores que guían cada proyecto
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Valor 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-tekoha-sky transition-colors">
+                        <div class="w-11 h-11 rounded-xl bg-tekoha-sky/15 text-tekoha-sky flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-medal"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Soluciones Digitales de Calidad</h4>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            Compromiso con estándares elevados de diseño web, velocidad, seguridad y rendimiento tecnológico en cada plataforma.
+                        </p>
+                    </div>
+
+                    <!-- Valor 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-tekoha-teal transition-colors">
+                        <div class="w-11 h-11 rounded-xl bg-tekoha-teal/15 text-tekoha-teal flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Innovación Tecnológica</h4>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            Promoción constante de herramientas modernas de software y automatización para impulsar el comercio turístico local.
+                        </p>
+                    </div>
+
+                    <!-- Valor 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-tekoha-gold transition-colors">
+                        <div class="w-11 h-11 rounded-xl bg-tekoha-gold/25 text-tekoha-navy flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Identidad y Turismo Local</h4>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            Respeto, valorización y potenciación de los atractivos turísticos, culturales y gastronómicos de Encarnación e Itapúa.
+                        </p>
+                    </div>
+
+                    <!-- Valor 4 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-tekoha-sky transition-colors">
+                        <div class="w-11 h-11 rounded-xl bg-tekoha-navy text-tekoha-gold flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Satisfacción del Cliente</h4>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            Priorización absoluta del acompañamiento cercano, capacitación al personal y soporte postventa continuo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Indicadores de Compromiso y Resultados -->
+                <div class="mt-8 pt-8 border-t border-slate-200/80 grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                    <div class="bg-white/80 rounded-2xl p-4 border border-slate-200/60">
+                        <span class="font-heading font-extrabold text-2xl text-tekoha-navy">15+</span>
+                        <p class="text-xs text-slate-600 mt-0.5">Establecimientos meta en el 1° año en Itapúa</p>
+                    </div>
+                    <div class="bg-white/80 rounded-2xl p-4 border border-slate-200/60">
+                        <span class="font-heading font-extrabold text-2xl text-tekoha-teal">+20% a 30%</span>
+                        <p class="text-xs text-slate-600 mt-0.5">Incremento en reservas directas (6 meses)</p>
+                    </div>
+                    <div class="bg-white/80 rounded-2xl p-4 border border-slate-200/60">
+                        <span class="font-heading font-extrabold text-2xl text-tekoha-sky">Alianzas</span>
+                        <p class="text-xs text-slate-600 mt-0.5">Vinculación con gremios turísticos y cámaras</p>
+                    </div>
+                    <div class="bg-white/80 rounded-2xl p-4 border border-slate-200/60">
+                        <span class="font-heading font-extrabold text-2xl text-amber-600">&gt;90%</span>
+                        <p class="text-xs text-slate-600 mt-0.5">Índice de satisfacción postventa y capacitación</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+    <!-- SECCIÓN: MANUAL DE MARCA Y SISTEMA VISUAL (SEGÚN ADELANTO N° 1) -->
+    <section class="py-16 lg:py-24 bg-tekoha-light border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-tekoha-navy bg-tekoha-sky/20 px-3.5 py-1.5 rounded-full">
+                    Manual de Marca Oficial • FaCyT - UNI
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-tekoha-navy mt-4">
+                    Identidad Corporativa y Paleta Cromática
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Sistema visual normado según el Plan de Negocios de Tekoha Digital. Cada elemento y color sintetiza tecnología, hospitalidad e identidad del sur del país.
+                </p>
+            </div>
+
+            <!-- Paleta Cromática Oficial -->
+            <div class="mb-16">
+                <h3 class="font-heading font-bold text-xl text-tekoha-navy mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-palette text-tekoha-teal"></i>
+                    <span>Paleta Cromática Oficial (Sección 3.3 del Manual)</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Celeste -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-24 rounded-xl mb-4 shadow-inner flex items-end p-3 text-tekoha-navy font-mono font-bold text-sm" style="background-color: #38BDF8;">
+                            #38BDF8
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Celeste</h4>
+                        <p class="text-xs font-semibold text-tekoha-sky uppercase mt-0.5">Tecnología e Innovación</p>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Representa innovación tecnológica, conectividad y modernidad digital.</p>
+                    </div>
+
+                    <!-- Azul Profundo -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-24 rounded-xl mb-4 shadow-inner flex items-end p-3 text-white font-mono font-bold text-sm" style="background-color: #0F2A43;">
+                            #0F2A43
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Azul Profundo</h4>
+                        <p class="text-xs font-semibold text-tekoha-navy uppercase mt-0.5">Confianza y Solidez</p>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Transmite confianza, profesionalismo, estabilidad y seriedad institucional.</p>
+                    </div>
+
+                    <!-- Turquesa -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-24 rounded-xl mb-4 shadow-inner flex items-end p-3 text-white font-mono font-bold text-sm" style="background-color: #14B8A6;">
+                            #14B8A6
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Turquesa</h4>
+                        <p class="text-xs font-semibold text-tekoha-teal uppercase mt-0.5">Turismo y Naturaleza</p>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Evoca turismo, naturaleza viva, frescura y experiencias de viaje en Itapúa.</p>
+                    </div>
+
+                    <!-- Dorado Suave -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-24 rounded-xl mb-4 shadow-inner flex items-end p-3 text-tekoha-navy font-mono font-bold text-sm" style="background-color: #D4AF7C;">
+                            #D4AF7C
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Dorado Suave</h4>
+                        <p class="text-xs font-semibold text-amber-700 uppercase mt-0.5">Hospitalidad y Calidez</p>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Refleja hospitalidad, calidez, confort, calidad y cuidado del detalle.</p>
+                    </div>
+
+                    <!-- Blanco / Gris Claro -->
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-24 rounded-xl mb-4 shadow-inner border border-slate-200 flex items-end p-3 text-slate-600 font-mono font-bold text-sm" style="background-color: #F8FAFC;">
+                            #F8FAFC
+                        </div>
+                        <h4 class="font-heading font-bold text-base text-tekoha-navy">Blanco / Luz</h4>
+                        <p class="text-xs font-semibold text-slate-400 uppercase mt-0.5">Limpieza y Balance</p>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Brinda limpieza, simplicidad visual y equilibrio a la interfaz de usuario.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aplicaciones de los Logos Oficiales -->
+            <div>
+                <h3 class="font-heading font-bold text-xl text-tekoha-navy mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-shapes text-tekoha-sky"></i>
+                    <span>Logos y Aplicaciones de Marca (Carpeta oficial /logos)</span>
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Imagotipo Fondo Claro -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-tekoha-navy bg-slate-100 px-3 py-1 rounded-full">
+                            Imagotipo Oficial • Fondo Claro
+                        </span>
+                        <div class="my-8 py-8 px-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-center">
+                            <img src="logos/imagotipo para usar con fondo claro.png" alt="Imagotipo fondo claro Tekoha Digital" class="max-h-24 object-contain">
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Uso:</strong> Cabeceras principales, documentos impresos claros y aplicaciones sobre fondo blanco o #F8FAFC.
+                        </p>
+                    </div>
+
+                    <!-- Imagotipo Fondo Oscuro -->
+                    <div class="bg-tekoha-navyDark rounded-3xl p-8 border border-white/10 shadow-lg text-white">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-tekoha-sky bg-white/10 px-3 py-1 rounded-full">
+                            Imagotipo Oficial • Fondo Oscuro
+                        </span>
+                        <div class="my-8 py-8 px-6 bg-[#0B1E30] border border-white/5 rounded-2xl flex items-center justify-center">
+                            <img src="logos/imagotipo para usar con fondo oscuro.png" alt="Imagotipo fondo oscuro Tekoha Digital" class="max-h-24 object-contain">
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            <strong>Uso:</strong> Pie de página (footer), fondos oscuros #0F2A43 o #091B2C, material de merchandising nocturno o presentaciones de gala.
+                        </p>
+                    </div>
+
+                    <!-- Isotipos Comparativos -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-tekoha-teal bg-tekoha-teal/10 px-3 py-1 rounded-full">
+                            Isotipo Símbolo • Fondo Claro & Oscuro
+                        </span>
+                        <div class="my-8 grid grid-cols-2 gap-4">
+                            <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex flex-col items-center justify-center text-center">
+                                <img src="logos/isotipo para usar con fondo claro.png" alt="Isotipo fondo claro" class="h-20 object-contain">
+                                <span class="text-[10px] text-slate-500 font-medium mt-3">Fondo Claro / Favicon</span>
+                            </div>
+                            <div class="p-6 bg-tekoha-navy rounded-2xl flex flex-col items-center justify-center text-center">
+                                <img src="logos/isotipo para usar con fondo oscuro.png" alt="Isotipo fondo oscuro" class="h-20 object-contain">
+                                <span class="text-[10px] text-slate-300 font-medium mt-3">Fondo Oscuro</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Concepto (Sección 3.2):</strong> Integra el hogar/alojamiento (calidez), la curva envolvente de la costanera (turismo y río Paraná) y el pin de ubicación digital (tecnología y reservas).
+                        </p>
+                    </div>
+
+                    <!-- Logotipos Tipográficos -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-tekoha-gold bg-amber-50 text-amber-800 px-3 py-1 rounded-full">
+                            Logotipo Tipográfico • Fondo Claro & Oscuro
+                        </span>
+                        <div class="my-8 grid grid-cols-2 gap-4">
+                            <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex flex-col items-center justify-center text-center">
+                                <img src="logos/logotipo para usar con fondo claro.png" alt="Logotipo fondo claro" class="h-14 object-contain">
+                                <span class="text-[10px] text-slate-500 font-medium mt-3">Fondo Claro</span>
+                            </div>
+                            <div class="p-6 bg-tekoha-navy rounded-2xl flex flex-col items-center justify-center text-center">
+                                <img src="logos/logotipo para usar con fondo oscuro.png" alt="Logotipo fondo oscuro" class="h-14 object-contain">
+                                <span class="text-[10px] text-slate-300 font-medium mt-3">Fondo Oscuro</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Tipografía de Marca:</strong> Plus Jakarta Sans para titulares e isotipos (modernidad y carácter) combinada con Inter para textos de lectura continua y alta legibilidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slogan y Mensajes de Marca -->
+            <div class="mt-14 p-8 rounded-3xl bg-tekoha-navy text-white text-center">
+                <span class="text-xs font-bold uppercase tracking-widest text-tekoha-gold">Mensajes de Marca Oficiales</span>
+                <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-white mt-2">“Tu destino, en un solo lugar.”</h3>
+                <p class="text-slate-300 text-sm max-w-2xl mx-auto mt-2">
+                    <strong>Slogan Alternativo:</strong> “Tecnología que impulsa tu experiencia.”<br>
+                    <strong>Descriptor Comercial:</strong> TEKOHA DIGITAL — Hoteles · Hospedajes · Turismo · Tecnología
+                </p>
+            </div>
+        </div>
+    </section>
+
+</main>
+    <!-- FOOTER INSTITUCIONAL (LOGO OFICIAL FONDO OSCURO) -->
+    <footer class="bg-tekoha-navyDark text-slate-400 py-12 border-t border-white/10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10 items-center">
+                
+                <!-- Logo Versión Oscura -->
+                <div class="md:col-span-5 space-y-3">
+                    <a href="index.html" class="inline-block" aria-label="Inicio - Tekoha Digital">
+                        <img src="logos/imagotipo para usar con fondo oscuro.png" 
+                             alt="Tekoha Digital - Tu destino, en un solo lugar" 
+                             class="h-12 sm:h-14 w-auto object-contain" />
+                    </a>
+                    <p class="text-xs text-slate-400 max-w-sm mt-2">
+                        “Tu destino, en un solo lugar.” — Soluciones tecnológicas con identidad local para la industria de la hospitalidad, gastronomía y entretenimiento en Encarnación e Itapúa.
+                    </p>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="md:col-span-4 flex flex-wrap gap-6 text-xs font-medium">
+                    <a href="index.html" class="hover:text-tekoha-sky transition-colors">Inicio</a>
+                    <a href="soluciones.html" class="hover:text-tekoha-sky transition-colors">Soluciones</a>
+                    <a href="demo.html" class="hover:text-tekoha-sky transition-colors">Demo en Vivo</a>
+                    <a href="calculadora.html" class="hover:text-tekoha-sky transition-colors">Calculadora ROI</a>
+                    <a href="nosotros.html" class="hover:text-tekoha-sky transition-colors">Nosotros</a>
+                    <a href="planes.html" class="hover:text-tekoha-sky transition-colors">Planes</a>
+                    <a href="contacto.html" class="hover:text-tekoha-sky transition-colors">Contacto</a>
+                </div>
+
+                <!-- Descriptor Comercial Regional -->
+                <div class="md:col-span-3 md:text-right text-xs space-y-1">
+                    <span class="text-tekoha-sky font-semibold block uppercase tracking-wider text-[11px]">FaCyT - UNI | Mercadotecnia</span>
+                    <span class="text-slate-400 block">Licenciatura en Informática Empresarial</span>
+                    <span class="text-slate-500 block text-[10px]">Encarnación, Itapúa – Paraguay</span>
+                </div>
+            </div>
+
+            <!-- Copyright y Firma -->
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 Tekoha Digital. Todos los derechos reservados. Hoteles · Hospedajes · Turismo · Tecnología.</p>
+                <div class="flex items-center space-x-4">
+                    <a href="nosotros.html" class="hover:text-slate-400 transition-colors">Identidad de Marca</a>
+                    <span class="text-white/20">•</span>
+                    <a href="contacto.html" class="hover:text-slate-400 transition-colors">Asistencia Local</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!-- MODAL DE CONFIRMACIÓN INTERACTIVA (SIN USAR ALERT) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-tekoha-navyDark/80 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border-2 border-tekoha-sky relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-16 h-16 rounded-2xl bg-tekoha-teal/15 text-tekoha-teal flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 id="modal-title" class="font-heading font-extrabold text-2xl text-tekoha-navy text-center">
+                ¡Reserva Directa Confirmada!
+            </h3>
+            <p id="modal-body" class="text-sm text-slate-600 text-center mt-2 leading-relaxed"></p>
+            <div id="modal-details" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 my-5 text-xs space-y-1.5 text-slate-700"></div>
+            <button onclick="closeModal()" class="w-full bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold py-3 rounded-xl transition-colors text-sm">
+                Entendido, continuar explorando
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS INTERACTIVOS (CALCULADORA, DEMO DE RESERVAS Y MENÚ) -->
+    
+    <!-- SCRIPTS COMUNES DE LA PLATAFORMA TEKOHA -->
+    <script>
+        // Control de Menú Móvil
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        // Modal Global Interactivo
+        function openModal(title, body, detailsHtml) {
+            const mTitle = document.getElementById('modal-title');
+            const mBody = document.getElementById('modal-body');
+            const mDetails = document.getElementById('modal-details');
+            const modal = document.getElementById('custom-modal');
+            if (mTitle) mTitle.textContent = title;
+            if (mBody) mBody.textContent = body;
+            if (mDetails) mDetails.innerHTML = detailsHtml || '';
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('custom-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // Formateador estándar de Guaraníes
+        function formatGs(amount) {
+            return 'Gs. ' + Math.round(amount).toLocaleString('es-PY');
+        }
+    </script>
+
+</body>
+</html>

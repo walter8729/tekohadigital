@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Solicitud de Diagnóstico Digital | Tekoha Digital</title>
+    <meta name="description" content="Solicita tu diagnóstico digital gratuito para tu hotel, posada o restaurante en Encarnación e Itapúa.">
+    <link rel="icon" type="image/png" href="logos/isotipo para usar con fondo claro.png">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN con Paleta Oficial Tekoha Digital del Manual de Marca) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tekoha: {
+                            sky: '#38BDF8',      /* Celeste: Tecnología, innovación, conectividad */
+                            navy: '#0F2A43',     /* Azul Profundo: Confianza, profesionalismo, estabilidad */
+                            navyDark: '#091B2C', /* Variación oscura para contrastes */
+                            teal: '#14B8A6',     /* Turquesa: Turismo, naturaleza, frescura */
+                            gold: '#D4AF7C',     /* Dorado Suave: Hospitalidad, calidez, confort */
+                            light: '#F8FAFC',    /* Blanco / Gris claro: Limpieza, equilibrio */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-sky': '0 10px 30px -5px rgba(56, 189, 248, 0.35)',
+                        'glow-gold': '0 10px 30px -5px rgba(212, 175, 124, 0.25)',
+                        'card': '0 20px 40px -15px rgba(15, 42, 67, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0F2A43;
+            overflow-x: hidden;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            background: #E2E8F0;
+            height: 8px;
+            border-radius: 999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px;
+            background-color: #38BDF8;
+            border: 3px solid #0F2A43;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background-color: #14B8A6;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tekoha-sky selection:text-tekoha-navy min-h-screen flex flex-col justify-between">
+    <!-- BARRA SUPERIOR INFORMATIVA -->
+    <div class="bg-tekoha-navyDark text-tekoha-light text-xs py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-tekoha-teal/20 text-tekoha-teal border border-tekoha-teal/30">
+                    <i class="fa-solid fa-location-dot mr-1"></i> Encarnación e Itapúa, Paraguay
+                </span>
+                <span class="hidden sm:inline text-slate-300">Transformación Digital para Hotelería, Hospedajes, Gastronomía y Turismo</span>
+            </div>
+            <div class="flex items-center space-x-4 text-slate-300">
+                <a href="demo.html" class="hover:text-tekoha-sky transition-colors"><i class="fa-solid fa-bolt mr-1 text-tekoha-gold"></i>Motor de Reservas 0% Comisión</a>
+                <span class="text-white/20">|</span>
+                <a href="contacto.html" class="hover:text-tekoha-sky transition-colors"><i class="fa-brands fa-whatsapp mr-1 text-tekoha-teal"></i>Soporte Local en Itapúa</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR PRINCIPAL (STICKY) CON LOGO OFICIAL (FONDO CLARO) -->
+    <header id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- LOGO OFICIAL TEKOHA DIGITAL (FONDO CLARO) -->
+                <a href="index.html" class="flex items-center group focus:outline-none" aria-label="Ir al Inicio - Tekoha Digital">
+                    <img src="logos/imagotipo para usar con fondo claro.png" 
+                         alt="Tekoha Digital - Hoteles, Hospedajes, Turismo, Tecnología" 
+                         class="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                </a>
+
+                <!-- MENÚ DE NAVEGACIÓN DESKTOP -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium">
+                    <a href="index.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Inicio</a>
+                    <a href="soluciones.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Soluciones</a>
+                    <a href="demo.html" class="transition-colors flex items-center gap-1.5 text-tekoha-navy font-semibold hover:text-tekoha-sky">
+                        <span class="w-2 h-2 rounded-full bg-tekoha-teal animate-ping"></span>
+                        Demo en Vivo
+                    </a>
+                    <a href="calculadora.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Calculadora ROI</a>
+                    <a href="nosotros.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Nosotros</a>
+                    <a href="planes.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Planes</a>
+                    <a href="contacto.html" class="text-tekoha-sky font-bold border-b-2 border-tekoha-sky pb-1">Contacto</a>
+                </nav>
+
+                <!-- BOTÓN DE ACCIÓN RÁPIDA / CTA -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="contacto.html" class="bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-glow-sky transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-tekoha-gold"></i>
+                        <span>Solicitar Demo</span>
+                    </a>
+                </div>
+
+                <!-- BOTÓN MENÚ MÓVIL (HAMBURGUESA) -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-tekoha-navy hover:text-tekoha-sky focus:outline-none p-2 rounded-lg" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE MÓVIL -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Inicio</a>
+            <a href="soluciones.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Soluciones</a>
+            <a href="demo.html" class="block px-3 py-2 rounded-lg text-base text-tekoha-teal bg-tekoha-teal/10 font-semibold">Demo en Vivo (Motor de Reservas)</a>
+            <a href="calculadora.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Calculadora ROI</a>
+            <a href="nosotros.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Nosotros</a>
+            <a href="planes.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Planes</a>
+            <a href="contacto.html" class="block px-3 py-2 rounded-lg text-base font-medium bg-tekoha-sky/15 text-tekoha-sky font-bold">Contacto</a>
+            <a href="contacto.html" class="block w-full text-center bg-tekoha-sky text-tekoha-navy font-heading font-bold px-4 py-3 rounded-xl shadow-md mt-2">
+                Solicitar Demo
+            </a>
+        </div>
+    </header>
+<main class="flex-grow">
+<!-- SECCIÓN: CONTACTO Y SOLICITUD DE DIAGNÓSTICO DIGITAL -->
+    <section id="contacto" class="py-16 lg:py-24 bg-tekoha-navy text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Información Local -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-tekoha-sky bg-tekoha-sky/10 border border-tekoha-sky/30 px-3.5 py-1.5 rounded-full">
+                        <i class="fa-solid fa-handshake"></i> Cercanía y Soporte Personalizado
+                    </span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl">
+                        Impulsemos las reservas directas de tu establecimiento
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Solicitá una evaluación gratuita de la presencia digital actual de tu hotel, posada o restaurante en Encarnación e Itapúa. Nuestro equipo técnico y comercial te presentará una propuesta a medida.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 text-tekoha-sky flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-white">Ubicación Estratégica</h4>
+                                <p class="text-xs text-slate-300 mt-0.5">Encarnación, Departamento de Itapúa - Paraguay (Cobertura en Colonias Unidas, Carmen del Paraná, Cosme y Damián y alrededores).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 text-tekoha-teal flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-white">Atención Comercial Directa</h4>
+                                <p class="text-xs text-slate-300 mt-0.5">+595 (71) 206 990 / +595 985 000 000 • hola@tekohadigital.com.py</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 text-tekoha-gold flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-users-gear"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-white">Equipo de Gerencia, Desarrollo y Marketing</h4>
+                                <p class="text-xs text-slate-300 mt-0.5">Especialistas en Ingeniería de Software, Diseño UX/UI y Mercadotecnia Aplicada (FaCyT - UNI).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario Interactivo -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="bg-white text-tekoha-navy rounded-3xl p-8 sm:p-10 shadow-2xl space-y-5">
+                        <div class="border-b border-slate-100 pb-4">
+                            <h3 class="font-heading font-extrabold text-2xl text-tekoha-navy">Solicitar Diagnóstico Digital Gratuito</h3>
+                            <p class="text-xs text-slate-500 mt-1">Completá tus datos y simulá el envío para recibir tu plan de transformación digital.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1.5">Nombre del Establecimiento *</label>
+                                <input id="form-business" type="text" required placeholder="Ej: Hotel / Posada / Restaurante" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-tekoha-sky">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1.5">Rubro Turístico *</label>
+                                <select id="form-category" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-tekoha-sky">
+                                    <option value="Hotel / Hostería">Hotel / Hostería</option>
+                                    <option value="Posada Turística">Posada Turística</option>
+                                    <option value="Alojamiento Temporal / Depto">Alojamiento Temporal / Departamento</option>
+                                    <option value="Gastronomía / Restaurante">Gastronomía / Restaurante Turístico</option>
+                                    <option value="Centro de Entretenimiento / Turismo">Complejo Turístico / Entretenimiento</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1.5">Ciudad en Itapúa *</label>
+                                <input id="form-city" type="text" required value="Encarnación" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-tekoha-sky">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1.5">Teléfono / WhatsApp *</label>
+                                <input id="form-phone" type="tel" required placeholder="Ej: 0985 123 456" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-tekoha-sky">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1.5">Solución de Interés</label>
+                            <input id="form-plan" type="text" placeholder="Ej: Sitio Web + Motor de Reservas Directas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-tekoha-sky">
+                        </div>
+
+                        <button type="submit" class="w-full bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-base">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Enviar Solicitud a Tekoha Digital</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+</main>
+    <!-- FOOTER INSTITUCIONAL (LOGO OFICIAL FONDO OSCURO) -->
+    <footer class="bg-tekoha-navyDark text-slate-400 py-12 border-t border-white/10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10 items-center">
+                
+                <!-- Logo Versión Oscura -->
+                <div class="md:col-span-5 space-y-3">
+                    <a href="index.html" class="inline-block" aria-label="Inicio - Tekoha Digital">
+                        <img src="logos/imagotipo para usar con fondo oscuro.png" 
+                             alt="Tekoha Digital - Tu destino, en un solo lugar" 
+                             class="h-12 sm:h-14 w-auto object-contain" />
+                    </a>
+                    <p class="text-xs text-slate-400 max-w-sm mt-2">
+                        “Tu destino, en un solo lugar.” — Soluciones tecnológicas con identidad local para la industria de la hospitalidad, gastronomía y entretenimiento en Encarnación e Itapúa.
+                    </p>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="md:col-span-4 flex flex-wrap gap-6 text-xs font-medium">
+                    <a href="index.html" class="hover:text-tekoha-sky transition-colors">Inicio</a>
+                    <a href="soluciones.html" class="hover:text-tekoha-sky transition-colors">Soluciones</a>
+                    <a href="demo.html" class="hover:text-tekoha-sky transition-colors">Demo en Vivo</a>
+                    <a href="calculadora.html" class="hover:text-tekoha-sky transition-colors">Calculadora ROI</a>
+                    <a href="nosotros.html" class="hover:text-tekoha-sky transition-colors">Nosotros</a>
+                    <a href="planes.html" class="hover:text-tekoha-sky transition-colors">Planes</a>
+                    <a href="contacto.html" class="hover:text-tekoha-sky transition-colors">Contacto</a>
+                </div>
+
+                <!-- Descriptor Comercial Regional -->
+                <div class="md:col-span-3 md:text-right text-xs space-y-1">
+                    <span class="text-tekoha-sky font-semibold block uppercase tracking-wider text-[11px]">FaCyT - UNI | Mercadotecnia</span>
+                    <span class="text-slate-400 block">Licenciatura en Informática Empresarial</span>
+                    <span class="text-slate-500 block text-[10px]">Encarnación, Itapúa – Paraguay</span>
+                </div>
+            </div>
+
+            <!-- Copyright y Firma -->
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 Tekoha Digital. Todos los derechos reservados. Hoteles · Hospedajes · Turismo · Tecnología.</p>
+                <div class="flex items-center space-x-4">
+                    <a href="nosotros.html" class="hover:text-slate-400 transition-colors">Identidad de Marca</a>
+                    <span class="text-white/20">•</span>
+                    <a href="contacto.html" class="hover:text-slate-400 transition-colors">Asistencia Local</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!-- MODAL DE CONFIRMACIÓN INTERACTIVA (SIN USAR ALERT) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-tekoha-navyDark/80 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border-2 border-tekoha-sky relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-16 h-16 rounded-2xl bg-tekoha-teal/15 text-tekoha-teal flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 id="modal-title" class="font-heading font-extrabold text-2xl text-tekoha-navy text-center">
+                ¡Reserva Directa Confirmada!
+            </h3>
+            <p id="modal-body" class="text-sm text-slate-600 text-center mt-2 leading-relaxed"></p>
+            <div id="modal-details" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 my-5 text-xs space-y-1.5 text-slate-700"></div>
+            <button onclick="closeModal()" class="w-full bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold py-3 rounded-xl transition-colors text-sm">
+                Entendido, continuar explorando
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS INTERACTIVOS (CALCULADORA, DEMO DE RESERVAS Y MENÚ) -->
+    
+    <!-- SCRIPTS COMUNES DE LA PLATAFORMA TEKOHA -->
+    <script>
+        // Control de Menú Móvil
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        // Modal Global Interactivo
+        function openModal(title, body, detailsHtml) {
+            const mTitle = document.getElementById('modal-title');
+            const mBody = document.getElementById('modal-body');
+            const mDetails = document.getElementById('modal-details');
+            const modal = document.getElementById('custom-modal');
+            if (mTitle) mTitle.textContent = title;
+            if (mBody) mBody.textContent = body;
+            if (mDetails) mDetails.innerHTML = detailsHtml || '';
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('custom-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // Formateador estándar de Guaraníes
+        function formatGs(amount) {
+            return 'Gs. ' + Math.round(amount).toLocaleString('es-PY');
+        }
+    </script>
+
+    <script>
+        function preselectPlan(planName) {
+            const planInput = document.getElementById('form-plan');
+            if (planInput) planInput.value = planName;
+        }
+
+        // Verificar si viene con parámetro de plan en la URL (?plan=Nombre)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const planParam = urlParams.get('plan');
+            if (planParam) {
+                preselectPlan(planParam);
+            }
+        });
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const business = document.getElementById('form-business').value;
+            const category = document.getElementById('form-category').value;
+            const city = document.getElementById('form-city').value;
+            const phone = document.getElementById('form-phone').value;
+
+            openModal(
+                '¡Solicitud de Diagnóstico Recibida!',
+                'Gracias por contactar a Tekoha Digital. Nuestro equipo técnico y de marketing en Encarnación preparará la propuesta para tu establecimiento.',
+                `
+                <p><strong>Establecimiento:</strong> ${business}</p>
+                <p><strong>Rubro:</strong> ${category}</p>
+                <p><strong>Localidad:</strong> ${city}, Itapúa</p>
+                <p><strong>Contacto WhatsApp:</strong> ${phone}</p>
+                `
+            );
+            e.target.reset();
+        }
+    </script>
+
+</body>
+</html>

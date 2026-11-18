@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo en Vivo | Motor de Reservas 0% Comisión Tekoha Digital</title>
+    <meta name="description" content="Prueba en tiempo real nuestro motor de reservas directas para hoteles y posadas de Encarnación e Itapúa sin intermediarios.">
+    <link rel="icon" type="image/png" href="logos/isotipo para usar con fondo claro.png">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN con Paleta Oficial Tekoha Digital del Manual de Marca) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tekoha: {
+                            sky: '#38BDF8',      /* Celeste: Tecnología, innovación, conectividad */
+                            navy: '#0F2A43',     /* Azul Profundo: Confianza, profesionalismo, estabilidad */
+                            navyDark: '#091B2C', /* Variación oscura para contrastes */
+                            teal: '#14B8A6',     /* Turquesa: Turismo, naturaleza, frescura */
+                            gold: '#D4AF7C',     /* Dorado Suave: Hospitalidad, calidez, confort */
+                            light: '#F8FAFC',    /* Blanco / Gris claro: Limpieza, equilibrio */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-sky': '0 10px 30px -5px rgba(56, 189, 248, 0.35)',
+                        'glow-gold': '0 10px 30px -5px rgba(212, 175, 124, 0.25)',
+                        'card': '0 20px 40px -15px rgba(15, 42, 67, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0F2A43;
+            overflow-x: hidden;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            background: #E2E8F0;
+            height: 8px;
+            border-radius: 999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px;
+            background-color: #38BDF8;
+            border: 3px solid #0F2A43;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background-color: #14B8A6;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tekoha-sky selection:text-tekoha-navy min-h-screen flex flex-col justify-between">
+    <!-- BARRA SUPERIOR INFORMATIVA -->
+    <div class="bg-tekoha-navyDark text-tekoha-light text-xs py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-tekoha-teal/20 text-tekoha-teal border border-tekoha-teal/30">
+                    <i class="fa-solid fa-location-dot mr-1"></i> Encarnación e Itapúa, Paraguay
+                </span>
+                <span class="hidden sm:inline text-slate-300">Transformación Digital para Hotelería, Hospedajes, Gastronomía y Turismo</span>
+            </div>
+            <div class="flex items-center space-x-4 text-slate-300">
+                <a href="demo.html" class="hover:text-tekoha-sky transition-colors"><i class="fa-solid fa-bolt mr-1 text-tekoha-gold"></i>Motor de Reservas 0% Comisión</a>
+                <span class="text-white/20">|</span>
+                <a href="contacto.html" class="hover:text-tekoha-sky transition-colors"><i class="fa-brands fa-whatsapp mr-1 text-tekoha-teal"></i>Soporte Local en Itapúa</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR PRINCIPAL (STICKY) CON LOGO OFICIAL (FONDO CLARO) -->
+    <header id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- LOGO OFICIAL TEKOHA DIGITAL (FONDO CLARO) -->
+                <a href="index.html" class="flex items-center group focus:outline-none" aria-label="Ir al Inicio - Tekoha Digital">
+                    <img src="logos/imagotipo para usar con fondo claro.png" 
+                         alt="Tekoha Digital - Hoteles, Hospedajes, Turismo, Tecnología" 
+                         class="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                </a>
+
+                <!-- MENÚ DE NAVEGACIÓN DESKTOP -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium">
+                    <a href="index.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Inicio</a>
+                    <a href="soluciones.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Soluciones</a>
+                    <a href="demo.html" class="transition-colors flex items-center gap-1.5 text-tekoha-sky font-bold">
+                        <span class="w-2 h-2 rounded-full bg-tekoha-teal animate-ping"></span>
+                        Demo en Vivo
+                    </a>
+                    <a href="calculadora.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Calculadora ROI</a>
+                    <a href="nosotros.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Nosotros</a>
+                    <a href="planes.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Planes</a>
+                    <a href="contacto.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Contacto</a>
+                </nav>
+
+                <!-- BOTÓN DE ACCIÓN RÁPIDA / CTA -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="contacto.html" class="bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-glow-sky transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-tekoha-gold"></i>
+                        <span>Solicitar Demo</span>
+                    </a>
+                </div>
+
+                <!-- BOTÓN MENÚ MÓVIL (HAMBURGUESA) -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-tekoha-navy hover:text-tekoha-sky focus:outline-none p-2 rounded-lg" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE MÓVIL -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Inicio</a>
+            <a href="soluciones.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Soluciones</a>
+            <a href="demo.html" class="block px-3 py-2 rounded-lg text-base bg-tekoha-teal/20 text-tekoha-teal font-bold">Demo en Vivo (Motor de Reservas)</a>
+            <a href="calculadora.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Calculadora ROI</a>
+            <a href="nosotros.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Nosotros</a>
+            <a href="planes.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Planes</a>
+            <a href="contacto.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Contacto</a>
+            <a href="contacto.html" class="block w-full text-center bg-tekoha-sky text-tekoha-navy font-heading font-bold px-4 py-3 rounded-xl shadow-md mt-2">
+                Solicitar Demo
+            </a>
+        </div>
+    </header>
+<main class="flex-grow">
+<!-- SECCIÓN INTERACTIVA 1: DEMO EN VIVO DEL MOTOR DE RESERVAS TEKOHA (PMV) -->
+    <section id="demo-reservas" class="py-16 lg:py-24 bg-tekoha-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-tekoha-navy bg-tekoha-gold/30 px-4 py-1.5 rounded-full">
+                    <i class="fa-solid fa-laptop-code"></i> Motor de Reservas en Vivo (Demo Interactiva)
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-tekoha-navy mt-4">
+                    Probá la experiencia de reserva directa que instalamos en tu hotel
+                </h2>
+                <p class="text-slate-600 mt-2">
+                    Seleccioná fechas de Check-in y Check-out, tipo de habitación y cantidad de huéspedes para comprobar cómo reservan tus clientes en Guaraníes y sin comisiones.
+                </p>
+            </div>
+
+            <!-- CONTENEDOR SIMULADOR DE HOTEL CLIENTE -->
+            <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+                <!-- Cabecera del Hotel Ejemplo -->
+                <div class="bg-gradient-to-r from-tekoha-navy via-tekoha-navy to-slate-800 text-white p-6 sm:px-10 flex flex-wrap justify-between items-center gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-tekoha-gold/20 border border-tekoha-gold flex items-center justify-center text-tekoha-gold text-xl">
+                            <i class="fa-solid fa-umbrella-beach"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] uppercase tracking-widest bg-tekoha-teal text-white px-2.5 py-0.5 rounded-full font-bold">Demo Hotel & Posada Costanera - Encarnación</span>
+                                <span class="text-xs text-tekoha-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl sm:text-2xl mt-0.5">Hotel & Posada Costanera San José</h3>
+                            <p class="text-xs text-slate-300"><i class="fa-solid fa-location-dot text-tekoha-sky mr-1"></i>Av. Costanera República del Paraguay, Encarnación - Itapúa</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-slate-300 block">Motor impulsado por</span>
+                        <span class="font-heading font-bold text-sm text-tekoha-sky">TEKOHA DIGITAL</span>
+                    </div>
+                </div>
+
+                <!-- Cuerpo del Motor de Reservas -->
+                <div class="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Paso 1 y 2: Selección de Fechas y Habitación -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h4 class="font-heading font-bold text-lg text-tekoha-navy flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-full bg-tekoha-sky text-tekoha-navy text-xs font-extrabold flex items-center justify-center">1</span>
+                            Seleccioná Fechas de Check-in / Check-out y Huéspedes
+                        </h4>
+
+                        <!-- Filtros de Fecha de Check-in / Check-out y Huéspedes -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Check-in</label>
+                                <input id="demo-checkin" type="date" value="2026-11-20" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-tekoha-navy focus:outline-none focus:border-tekoha-sky">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Check-out</label>
+                                <input id="demo-checkout" type="date" value="2026-11-22" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-tekoha-navy focus:outline-none focus:border-tekoha-sky">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Huéspedes</label>
+                                <select id="demo-huespedes" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-tekoha-navy focus:outline-none focus:border-tekoha-sky">
+                                    <option value="2 Adultos">2 Adultos</option>
+                                    <option value="2 Adultos + 1 Niño">2 Adultos + 1 Niño</option>
+                                    <option value="4 Personas (Familia)">4 Personas (Familia)</option>
+                                    <option value="1 Adulto (Ejecutivo)">1 Adulto (Ejecutivo)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Adicional Turístico</label>
+                                <select id="demo-extra" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-tekoha-navy focus:outline-none focus:border-tekoha-sky">
+                                    <option value="0">Desayuno Buffet (Incluido)</option>
+                                    <option value="120000">+ Tour Misiones Jesuíticas</option>
+                                    <option value="95000">+ Cena Costanera</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <h4 class="font-heading font-bold text-lg text-tekoha-navy flex items-center gap-2 pt-2">
+                            <span class="w-6 h-6 rounded-full bg-tekoha-sky text-tekoha-navy text-xs font-extrabold flex items-center justify-center">2</span>
+                            Elegí el Tipo de Habitación
+                        </h4>
+
+                        <!-- Tarjetas de Habitaciones -->
+                        <div class="space-y-3" id="room-list">
+                            <!-- Habitación 1: Suite Paraná -->
+                            <div onclick="selectRoom('Suite Paraná', 420000, this)" class="room-card cursor-pointer p-4 rounded-2xl border-2 border-tekoha-sky bg-sky-50/40 transition-all flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-20 h-16 rounded-xl bg-tekoha-navy overflow-hidden relative shrink-0 shadow-sm border border-slate-200">
+                                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80" alt="Suite Paraná" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h5 class="font-heading font-bold text-base text-tekoha-navy">Suite Paraná</h5>
+                                            <span class="text-[10px] font-bold bg-tekoha-teal/15 text-tekoha-teal px-2 py-0.5 rounded">Más Reservada</span>
+                                        </div>
+                                        <p class="text-xs text-slate-600 mt-0.5">Balcón frente a la Playa San José y Río Paraná • Cama King • Hidromasaje</p>
+                                    </div>
+                                </div>
+                                <div class="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-200">
+                                    <span class="font-heading font-extrabold text-lg text-tekoha-navy">Gs. 420.000</span>
+                                    <span class="text-xs text-slate-500 block">por noche</span>
+                                </div>
+                            </div>
+
+                            <!-- Habitación 2: Habitación Ejecutiva -->
+                            <div onclick="selectRoom('Habitación Ejecutiva', 290000, this)" class="room-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 hover:border-tekoha-sky/60 bg-white transition-all flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-20 h-16 rounded-xl bg-slate-200 overflow-hidden relative shrink-0 shadow-sm border border-slate-200">
+                                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=400&q=80" alt="Habitación Ejecutiva" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                                    </div>
+                                    <div>
+                                        <h5 class="font-heading font-bold text-base text-tekoha-navy">Habitación Ejecutiva</h5>
+                                        <p class="text-xs text-slate-600 mt-0.5">Ideal parejas o viajes corporativos • Escritorio • Wi-Fi Fibra • Piscina</p>
+                                    </div>
+                                </div>
+                                <div class="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-200">
+                                    <span class="font-heading font-extrabold text-lg text-tekoha-navy">Gs. 290.000</span>
+                                    <span class="text-xs text-slate-500 block">por noche</span>
+                                </div>
+                            </div>
+
+                            <!-- Habitación 3: Cabaña Familiar -->
+                            <div onclick="selectRoom('Cabaña Familiar', 550000, this)" class="room-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 hover:border-tekoha-sky/60 bg-white transition-all flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-20 h-16 rounded-xl bg-slate-200 overflow-hidden relative shrink-0 shadow-sm border border-slate-200">
+                                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80" alt="Cabaña Familiar" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                                    </div>
+                                    <div>
+                                        <h5 class="font-heading font-bold text-base text-tekoha-navy">Cabaña Familiar</h5>
+                                        <p class="text-xs text-slate-600 mt-0.5">2 Dormitorios equipados • Cocina y Parrilla privada • Hasta 5 personas</p>
+                                    </div>
+                                </div>
+                                <div class="text-right shrink-0 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-200">
+                                    <span class="font-heading font-extrabold text-lg text-tekoha-navy">Gs. 550.000</span>
+                                    <span class="text-xs text-slate-500 block">por noche</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3: Resumen de Reserva Directa -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 h-full flex flex-col justify-between space-y-5">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                                    <h4 class="font-heading font-bold text-base text-tekoha-navy">Liquidación en Vivo</h4>
+                                    <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">0% Comisión OTA</span>
+                                </div>
+
+                                <div class="space-y-3 py-4 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">Habitación elegida:</span>
+                                        <span id="summary-room" class="font-bold text-tekoha-navy text-right">Suite Paraná</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">Check-in / Check-out:</span>
+                                        <span id="summary-dates" class="font-medium text-slate-700 text-right">20/11/2026 → 22/11/2026</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">Estadía y Huéspedes:</span>
+                                        <span id="summary-details" class="font-medium text-slate-700 text-right">2 Noches • 2 Adultos</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">Adicional Turístico:</span>
+                                        <span id="summary-extra" class="font-medium text-tekoha-teal text-right">Desayuno Buffet (Incluido)</span>
+                                    </div>
+                                    <div class="border-t border-dashed border-slate-300 pt-3 flex justify-between items-baseline">
+                                        <span class="font-heading font-bold text-base text-tekoha-navy">Total Reserva Directa:</span>
+                                        <span id="summary-total" class="font-heading font-extrabold text-2xl text-tekoha-navy">Gs. 840.000</span>
+                                    </div>
+
+                                    <!-- Comparativa en vivo frente a OTA Internacional -->
+                                    <div class="bg-amber-50 border border-tekoha-gold/60 rounded-xl p-3.5 space-y-1.5 text-xs text-amber-950">
+                                        <div class="flex justify-between items-center font-bold">
+                                            <span><i class="fa-solid fa-scale-balanced text-tekoha-gold mr-1.5"></i>Comparativa frente a OTA (18%):</span>
+                                            <span id="summary-saved" class="text-emerald-700 text-sm">+Gs. 151.200 ahorrados</span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-600">
+                                            En una plataforma extranjera el hotel recibiría solo <strong id="summary-ota-net">Gs. 688.800</strong>. Con Tekoha Digital recibe el <strong>100% del pago</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Método de pago y nombre del huésped -->
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Método de Pago Local Preferido:</label>
+                                        <select id="demo-payment" class="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-semibold text-tekoha-navy focus:outline-none focus:border-tekoha-sky">
+                                            <option value="Pago QR Bancard / Billetera">Pago QR Instantáneo (Bancard / Billeteras)</option>
+                                            <option value="Transferencia Bancaria SIPAP">Transferencia Bancaria SIPAP (0% costo)</option>
+                                            <option value="Tarjeta de Crédito / Débito">Tarjeta de Crédito / Débito Online</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Nombre del Huésped:</label>
+                                        <input id="demo-guest-name" type="text" placeholder="Ingresá tu nombre para simular el voucher" class="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:border-tekoha-sky">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2 pt-2">
+                                <button onclick="triggerDemoBooking()" type="button" class="w-full bg-tekoha-teal hover:bg-tekoha-navy text-white font-heading font-bold py-3.5 px-5 rounded-xl shadow-md transition-all duration-300 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-qrcode"></i>
+                                    <span>Confirmar Reserva Directa Ahora</span>
+                                </button>
+                                <p class="text-[11px] text-center text-slate-500">
+                                    Confirmación inmediata en el panel del hotel y en el WhatsApp del huésped
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</main>
+    <!-- FOOTER INSTITUCIONAL (LOGO OFICIAL FONDO OSCURO) -->
+    <footer class="bg-tekoha-navyDark text-slate-400 py-12 border-t border-white/10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10 items-center">
+                
+                <!-- Logo Versión Oscura -->
+                <div class="md:col-span-5 space-y-3">
+                    <a href="index.html" class="inline-block" aria-label="Inicio - Tekoha Digital">
+                        <img src="logos/imagotipo para usar con fondo oscuro.png" 
+                             alt="Tekoha Digital - Tu destino, en un solo lugar" 
+                             class="h-12 sm:h-14 w-auto object-contain" />
+                    </a>
+                    <p class="text-xs text-slate-400 max-w-sm mt-2">
+                        “Tu destino, en un solo lugar.” — Soluciones tecnológicas con identidad local para la industria de la hospitalidad, gastronomía y entretenimiento en Encarnación e Itapúa.
+                    </p>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="md:col-span-4 flex flex-wrap gap-6 text-xs font-medium">
+                    <a href="index.html" class="hover:text-tekoha-sky transition-colors">Inicio</a>
+                    <a href="soluciones.html" class="hover:text-tekoha-sky transition-colors">Soluciones</a>
+                    <a href="demo.html" class="hover:text-tekoha-sky transition-colors">Demo en Vivo</a>
+                    <a href="calculadora.html" class="hover:text-tekoha-sky transition-colors">Calculadora ROI</a>
+                    <a href="nosotros.html" class="hover:text-tekoha-sky transition-colors">Nosotros</a>
+                    <a href="planes.html" class="hover:text-tekoha-sky transition-colors">Planes</a>
+                    <a href="contacto.html" class="hover:text-tekoha-sky transition-colors">Contacto</a>
+                </div>
+
+                <!-- Descriptor Comercial Regional -->
+                <div class="md:col-span-3 md:text-right text-xs space-y-1">
+                    <span class="text-tekoha-sky font-semibold block uppercase tracking-wider text-[11px]">FaCyT - UNI | Mercadotecnia</span>
+                    <span class="text-slate-400 block">Licenciatura en Informática Empresarial</span>
+                    <span class="text-slate-500 block text-[10px]">Encarnación, Itapúa – Paraguay</span>
+                </div>
+            </div>
+
+            <!-- Copyright y Firma -->
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 Tekoha Digital. Todos los derechos reservados. Hoteles · Hospedajes · Turismo · Tecnología.</p>
+                <div class="flex items-center space-x-4">
+                    <a href="nosotros.html" class="hover:text-slate-400 transition-colors">Identidad de Marca</a>
+                    <span class="text-white/20">•</span>
+                    <a href="contacto.html" class="hover:text-slate-400 transition-colors">Asistencia Local</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!-- MODAL DE CONFIRMACIÓN INTERACTIVA (SIN USAR ALERT) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-tekoha-navyDark/80 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border-2 border-tekoha-sky relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-16 h-16 rounded-2xl bg-tekoha-teal/15 text-tekoha-teal flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 id="modal-title" class="font-heading font-extrabold text-2xl text-tekoha-navy text-center">
+                ¡Reserva Directa Confirmada!
+            </h3>
+            <p id="modal-body" class="text-sm text-slate-600 text-center mt-2 leading-relaxed"></p>
+            <div id="modal-details" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 my-5 text-xs space-y-1.5 text-slate-700"></div>
+            <button onclick="closeModal()" class="w-full bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold py-3 rounded-xl transition-colors text-sm">
+                Entendido, continuar explorando
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS INTERACTIVOS (CALCULADORA, DEMO DE RESERVAS Y MENÚ) -->
+    
+    <!-- SCRIPTS COMUNES DE LA PLATAFORMA TEKOHA -->
+    <script>
+        // Control de Menú Móvil
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        // Modal Global Interactivo
+        function openModal(title, body, detailsHtml) {
+            const mTitle = document.getElementById('modal-title');
+            const mBody = document.getElementById('modal-body');
+            const mDetails = document.getElementById('modal-details');
+            const modal = document.getElementById('custom-modal');
+            if (mTitle) mTitle.textContent = title;
+            if (mBody) mBody.textContent = body;
+            if (mDetails) mDetails.innerHTML = detailsHtml || '';
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('custom-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // Formateador estándar de Guaraníes
+        function formatGs(amount) {
+            return 'Gs. ' + Math.round(amount).toLocaleString('es-PY');
+        }
+    </script>
+
+    <script>
+        let currentRoomName = 'Suite Paraná';
+        let currentRoomPrice = 420000;
+
+        const demoCheckin = document.getElementById('demo-checkin');
+        const demoCheckout = document.getElementById('demo-checkout');
+        const demoHuespedes = document.getElementById('demo-huespedes');
+        const demoExtra = document.getElementById('demo-extra');
+
+        function selectRoom(cardEl, name, price) {
+            currentRoomName = name;
+            currentRoomPrice = price;
+            document.querySelectorAll('.room-card').forEach(c => {
+                c.classList.remove('border-tekoha-sky', 'ring-2', 'ring-tekoha-sky', 'bg-tekoha-sky/5');
+                c.classList.add('border-slate-200');
+            });
+            cardEl.classList.remove('border-slate-200');
+            cardEl.classList.add('border-tekoha-sky', 'ring-2', 'ring-tekoha-sky', 'bg-tekoha-sky/5');
+            updateBookingSummary();
+        }
+
+        function formatDatePY(dateStr) {
+            if (!dateStr) return '';
+            const [y, m, d] = dateStr.split('-');
+            return `${d}/${m}/${y}`;
+        }
+
+        function getNightsCount() {
+            if (!demoCheckin || !demoCheckout || !demoCheckin.value || !demoCheckout.value) return 2;
+            const d1 = new Date(demoCheckin.value);
+            const d2 = new Date(demoCheckout.value);
+            const diffTime = d2 - d1;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays > 0 ? diffDays : 1;
+        }
+
+        function updateBookingSummary() {
+            if (!demoCheckin || !demoCheckout) return;
+            const noches = getNightsCount();
+            const huespedes = demoHuespedes ? demoHuespedes.value : '2 Adultos';
+            const extraCost = demoExtra ? parseInt(demoExtra.value, 10) : 0;
+            const extraText = demoExtra ? demoExtra.options[demoExtra.selectedIndex].text : '';
+
+            const total = (currentRoomPrice * noches) + extraCost;
+            const savedCommission = total * 0.18;
+            const otaNet = total - savedCommission;
+
+            const sRoom = document.getElementById('summary-room');
+            const sDates = document.getElementById('summary-dates');
+            const sDetails = document.getElementById('summary-details');
+            const sExtra = document.getElementById('summary-extra');
+            const sTotal = document.getElementById('summary-total');
+            const sSaved = document.getElementById('summary-saved');
+            const sOtaNet = document.getElementById('summary-ota-net');
+
+            if (sRoom) sRoom.textContent = currentRoomName;
+            if (sDates) sDates.textContent = `${formatDatePY(demoCheckin.value)} → ${formatDatePY(demoCheckout.value)}`;
+            if (sDetails) sDetails.textContent = `${noches} ${noches === 1 ? 'Noche' : 'Noches'} • ${huespedes}`;
+            if (sExtra) sExtra.textContent = extraCost === 0 ? 'Desayuno Buffet (Incluido)' : extraText;
+            if (sTotal) sTotal.textContent = formatGs(total);
+            if (sSaved) sSaved.textContent = '+' + formatGs(savedCommission) + ' ahorrados';
+            if (sOtaNet) sOtaNet.textContent = formatGs(otaNet);
+        }
+
+        [demoCheckin, demoCheckout, demoHuespedes, demoExtra].forEach(el => {
+            if (el) el.addEventListener('change', updateBookingSummary);
+        });
+
+        function triggerDemoBooking() {
+            const guestInput = document.getElementById('demo-guest-name');
+            const paymentInput = document.getElementById('demo-payment');
+            const guestName = (guestInput && guestInput.value.trim()) ? guestInput.value.trim() : 'Huésped Demostración';
+            const paymentMethod = paymentInput ? paymentInput.value : 'Transferencia Bancaria SIPAP';
+            const noches = getNightsCount();
+            const total = document.getElementById('summary-total') ? document.getElementById('summary-total').textContent : '';
+            const saved = document.getElementById('summary-saved') ? document.getElementById('summary-saved').textContent : '';
+            const dates = document.getElementById('summary-dates') ? document.getElementById('summary-dates').textContent : '';
+
+            openModal(
+                '¡Reserva Directa Confirmada!',
+                'Comprobante generado por el motor de reservas Tekoha Digital para Hotel & Posada Costanera San José (Encarnación).',
+                `
+                <p><strong>Huésped:</strong> ${guestName}</p>
+                <p><strong>Habitación:</strong> ${currentRoomName} (${noches} ${noches === 1 ? 'noche' : 'noches'})</p>
+                <p><strong>Check-in / Check-out:</strong> ${dates}</p>
+                <p><strong>Medio de Pago Local:</strong> ${paymentMethod}</p>
+                <p><strong>Total Abonado al Hotel:</strong> ${total}</p>
+                <p class="text-emerald-700 font-bold pt-1 border-t border-slate-200"><strong>Ahorro del Hotel frente a OTAs:</strong> ${saved} (0% comisión)</p>
+                `
+            );
+        }
+
+        window.addEventListener('DOMContentLoaded', updateBookingSummary);
+    </script>
+
+</body>
+</html>

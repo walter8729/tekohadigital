@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones y Servicios Especializados | Tekoha Digital Itapúa</title>
+    <meta name="description" content="Sitios web de alta conversión, motores de reservas 0% comisión, cartas digitales QR y posicionamiento SEO para el turismo de Itapúa.">
+    <link rel="icon" type="image/png" href="logos/isotipo para usar con fondo claro.png">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN con Paleta Oficial Tekoha Digital del Manual de Marca) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tekoha: {
+                            sky: '#38BDF8',      /* Celeste: Tecnología, innovación, conectividad */
+                            navy: '#0F2A43',     /* Azul Profundo: Confianza, profesionalismo, estabilidad */
+                            navyDark: '#091B2C', /* Variación oscura para contrastes */
+                            teal: '#14B8A6',     /* Turquesa: Turismo, naturaleza, frescura */
+                            gold: '#D4AF7C',     /* Dorado Suave: Hospitalidad, calidez, confort */
+                            light: '#F8FAFC',    /* Blanco / Gris claro: Limpieza, equilibrio */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-sky': '0 10px 30px -5px rgba(56, 189, 248, 0.35)',
+                        'glow-gold': '0 10px 30px -5px rgba(212, 175, 124, 0.25)',
+                        'card': '0 20px 40px -15px rgba(15, 42, 67, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0F2A43;
+            overflow-x: hidden;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            background: #E2E8F0;
+            height: 8px;
+            border-radius: 999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px;
+            background-color: #38BDF8;
+            border: 3px solid #0F2A43;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background-color: #14B8A6;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tekoha-sky selection:text-tekoha-navy min-h-screen flex flex-col justify-between">
+    <!-- BARRA SUPERIOR INFORMATIVA -->
+    <div class="bg-tekoha-navyDark text-tekoha-light text-xs py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-tekoha-teal/20 text-tekoha-teal border border-tekoha-teal/30">
+                    <i class="fa-solid fa-location-dot mr-1"></i> Encarnación e Itapúa, Paraguay
+                </span>
+                <span class="hidden sm:inline text-slate-300">Transformación Digital para Hotelería, Hospedajes, Gastronomía y Turismo</span>
+            </div>
+            <div class="flex items-center space-x-4 text-slate-300">
+                <a href="demo.html" class="hover:text-tekoha-sky transition-colors"><i class="fa-solid fa-bolt mr-1 text-tekoha-gold"></i>Motor de Reservas 0% Comisión</a>
+                <span class="text-white/20">|</span>
+                <a href="contacto.html" class="hover:text-tekoha-sky transition-colors"><i class="fa-brands fa-whatsapp mr-1 text-tekoha-teal"></i>Soporte Local en Itapúa</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR PRINCIPAL (STICKY) CON LOGO OFICIAL (FONDO CLARO) -->
+    <header id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- LOGO OFICIAL TEKOHA DIGITAL (FONDO CLARO) -->
+                <a href="index.html" class="flex items-center group focus:outline-none" aria-label="Ir al Inicio - Tekoha Digital">
+                    <img src="logos/imagotipo para usar con fondo claro.png" 
+                         alt="Tekoha Digital - Hoteles, Hospedajes, Turismo, Tecnología" 
+                         class="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                </a>
+
+                <!-- MENÚ DE NAVEGACIÓN DESKTOP -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium">
+                    <a href="index.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Inicio</a>
+                    <a href="soluciones.html" class="text-tekoha-sky font-bold border-b-2 border-tekoha-sky pb-1">Soluciones</a>
+                    <a href="demo.html" class="transition-colors flex items-center gap-1.5 text-tekoha-navy font-semibold hover:text-tekoha-sky">
+                        <span class="w-2 h-2 rounded-full bg-tekoha-teal animate-ping"></span>
+                        Demo en Vivo
+                    </a>
+                    <a href="calculadora.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Calculadora ROI</a>
+                    <a href="nosotros.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Nosotros</a>
+                    <a href="planes.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Planes</a>
+                    <a href="contacto.html" class="hover:text-tekoha-sky transition-colors text-tekoha-navy/80">Contacto</a>
+                </nav>
+
+                <!-- BOTÓN DE ACCIÓN RÁPIDA / CTA -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="contacto.html" class="bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-glow-sky transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-tekoha-gold"></i>
+                        <span>Solicitar Demo</span>
+                    </a>
+                </div>
+
+                <!-- BOTÓN MENÚ MÓVIL (HAMBURGUESA) -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-tekoha-navy hover:text-tekoha-sky focus:outline-none p-2 rounded-lg" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE MÓVIL -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Inicio</a>
+            <a href="soluciones.html" class="block px-3 py-2 rounded-lg text-base font-medium bg-tekoha-sky/15 text-tekoha-sky font-bold">Soluciones</a>
+            <a href="demo.html" class="block px-3 py-2 rounded-lg text-base text-tekoha-teal bg-tekoha-teal/10 font-semibold">Demo en Vivo (Motor de Reservas)</a>
+            <a href="calculadora.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Calculadora ROI</a>
+            <a href="nosotros.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Nosotros</a>
+            <a href="planes.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Planes</a>
+            <a href="contacto.html" class="block px-3 py-2 rounded-lg text-base font-medium text-tekoha-navy hover:bg-slate-100">Contacto</a>
+            <a href="contacto.html" class="block w-full text-center bg-tekoha-sky text-tekoha-navy font-heading font-bold px-4 py-3 rounded-xl shadow-md mt-2">
+                Solicitar Demo
+            </a>
+        </div>
+    </header>
+<main class="flex-grow">
+<!-- SECCIÓN: EL PROBLEMA VS LA SOLUCIÓN TEKOHA (PROPUESTA DE VALOR) -->
+    <section class="py-16 lg:py-24 bg-tekoha-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-tekoha-teal bg-tekoha-teal/10 px-3.5 py-1.5 rounded-full">
+                    Propuesta de Valor Diferencial
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-tekoha-navy mt-4">
+                    Superá la brecha digital y recuperá el control de tus reservas en Itapúa
+                </h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">
+                    Muchos hoteles, posadas y locales gastronómicos de la región dependen exclusivamente de redes sociales o ceden gran parte de su rentabilidad a plataformas extranjeras.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <!-- Tarjeta: Situación Tradicional -->
+                <div class="bg-white rounded-2xl p-8 border border-rose-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-rose-600 font-heading font-bold text-sm bg-rose-50 px-3.5 py-1.5 rounded-lg mb-5">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>El modelo tradicional sin Web Propia</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-tekoha-navy mb-4">
+                            Alta dependencia de intermediarios y pérdida de margen
+                        </h3>
+                        <ul class="space-y-4 text-slate-600 text-sm sm:text-base">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-xmark text-rose-500 mt-1 text-lg"></i>
+                                <span><strong>Comisiones del 15% al 25%:</strong> Las plataformas internacionales retienen una parte crítica de cada noche vendida.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-xmark text-rose-500 mt-1 text-lg"></i>
+                                <span><strong>Atención manual agotadora:</strong> Horas respondiendo precios y disponibilidad por mensajes sin concretar cierres automáticos.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-xmark text-rose-500 mt-1 text-lg"></i>
+                                <span><strong>Baja visibilidad en Google:</strong> Turistas que buscan alojamiento en Encarnación, Carmen del Paraná o Colonias Unidas no encuentran tu marca oficial.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-xmark text-rose-500 mt-1 text-lg"></i>
+                                <span><strong>Sin soporte cercano:</strong> Soluciones enlatadas del exterior que no entienden la temporada alta ni los medios de pago locales.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-slate-100 text-xs text-slate-400 flex items-center justify-between">
+                        <span>Diagnóstico del sector turístico regional</span>
+                        <span class="text-rose-500 font-semibold">Menor rentabilidad neta</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Ecosistema Tekoha Digital -->
+                <div class="bg-tekoha-navy text-white rounded-2xl p-8 border-2 border-tekoha-sky shadow-xl relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 bg-tekoha-gold text-tekoha-navy font-heading font-extrabold text-[11px] uppercase tracking-wider px-4 py-1.5 rounded-bl-xl">
+                        Ventaja Competitiva Local
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-tekoha-sky font-heading font-bold text-sm bg-tekoha-sky/15 px-3.5 py-1.5 rounded-lg mb-5">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>La Solución Integral Tekoha Digital</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-4">
+                            Canal directo, identidad propia y acompañamiento en Encarnación
+                        </h3>
+                        <ul class="space-y-4 text-slate-200 text-sm sm:text-base">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-tekoha-teal mt-1 text-lg"></i>
+                                <span><strong>0% Comisión por Reserva:</strong> Todo el ingreso de la estadía o reserva gastronómica ingresa directamente a tu establecimiento.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-tekoha-teal mt-1 text-lg"></i>
+                                <span><strong>Motor de Reservas 24/7:</strong> Tus huéspedes consultan disponibilidad real y reservan desde su celular en menos de 2 minutos.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-tekoha-teal mt-1 text-lg"></i>
+                                <span><strong>Adaptado a Paraguay:</strong> Integración con pagos por QR, transferencias bancarias SIPAP, WhatsApp directo y tarifarios en Guaraníes / USD.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-tekoha-teal mt-1 text-lg"></i>
+                                <span><strong>Capacitación constante al personal:</strong> Acompañamiento presencial y remoto para vencer la resistencia al cambio tecnológico.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-white/15 flex items-center justify-between">
+                        <span class="text-xs text-tekoha-gold font-medium"><i class="fa-solid fa-award mr-1"></i>Identidad local + Innovación</span>
+                        <a href="demo.html" class="text-xs font-bold text-tekoha-sky hover:underline">Ver cómo funciona →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: SOLUCIONES Y SERVICIOS ESPECIALIZADOS -->
+    <section id="soluciones" class="py-16 lg:py-24 bg-white border-y border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-tekoha-navy bg-tekoha-sky/20 px-3.5 py-1.5 rounded-full">
+                    Soluciones Tecnológicas para Hospitalidad
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-tekoha-navy mt-4">
+                    Todo lo que tu negocio turístico necesita en una sola plataforma
+                </h2>
+                <p class="text-slate-600 mt-3">
+                    Diseñamos, desarrollamos e integramos herramientas digitales creadas específicamente para hoteles, posadas, alojamientos temporales y gastronomía en Encarnación e Itapúa.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- SERVICIO 1: MOTORES DE RESERVAS DIRECTAS -->
+                <div class="bg-tekoha-light rounded-2xl p-7 border-2 border-tekoha-teal shadow-card transition-all duration-300 group flex flex-col justify-between relative">
+                    <span class="absolute -top-3 right-5 bg-tekoha-teal text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                        0% Comisiones
+                    </span>
+                    <div>
+                        <div class="w-13 h-13 w-12 h-12 rounded-2xl bg-tekoha-teal text-white flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform shadow-md">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-tekoha-teal">Reservas Directas</span>
+                        <h3 class="font-heading font-bold text-lg text-tekoha-navy mt-1 mb-2.5">
+                            Motores de Reservas 24/7 sin Intermediarios
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
+                            Captá reservas directas en tiempo real sin pagar comisiones a plataformas externas, integrando medios de pago locales.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-teal"></i> Check-in / Check-out en vivo</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-teal"></i> Cobros con QR, Bancard y SIPAP</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-teal"></i> Tarifas por temporada y feriados</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-200/70">
+                        <a href="demo.html" class="text-xs font-bold text-tekoha-teal hover:underline">Probar motor en vivo →</a>
+                    </div>
+                </div>
+
+                <!-- SERVICIO 2: SITIOS WEB MODERNOS MOBILE-FIRST -->
+                <div class="bg-tekoha-light rounded-2xl p-7 border border-slate-200/80 hover:border-tekoha-sky shadow-card transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-tekoha-navy text-tekoha-sky flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform shadow-md">
+                            <i class="fa-solid fa-laptop-mobile"></i>
+                        </div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-tekoha-sky">Diseño UX Mobile-First</span>
+                        <h3 class="font-heading font-bold text-lg text-tekoha-navy mt-1 mb-2.5">
+                            Sitios Web Modernos para Hoteles y Posadas
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
+                            Páginas web rápidas, atractivas y optimizadas para celulares que transmiten la calidez y confort de tu alojamiento.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-sky"></i> Galerías inmersivas de suites</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-sky"></i> Catálogo para deptos temporarios</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-sky"></i> Español, Portugués e Inglés</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-200/70">
+                        <span class="text-xs font-semibold text-tekoha-navy">Hoteles, Hosterías y Posadas</span>
+                    </div>
+                </div>
+
+                <!-- SERVICIO 3: GASTRONOMÍA TURÍSTICA -->
+                <div class="bg-tekoha-light rounded-2xl p-7 border border-slate-200/80 hover:border-tekoha-gold shadow-card transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-tekoha-gold text-tekoha-navy flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform shadow-md">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-amber-700">Gastronomía & Ocio</span>
+                        <h3 class="font-heading font-bold text-lg text-tekoha-navy mt-1 mb-2.5">
+                            Menús Digitales QR y Reserva de Mesas
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
+                            Digitalizamos restaurantes y paradores de la Costanera con cartas interactivas y reservas directas para turistas.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-amber-600"></i> Menú QR fotográfico autogestionable</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-amber-600"></i> Reserva de mesas y eventos</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-amber-600"></i> Pedidos directos por WhatsApp</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-200/70">
+                        <span class="text-xs font-semibold text-tekoha-navy">Restaurantes y Entretenimiento</span>
+                    </div>
+                </div>
+
+                <!-- SERVICIO 4: SEO LOCAL Y CAPACITACIÓN -->
+                <div class="bg-tekoha-light rounded-2xl p-7 border border-slate-200/80 hover:border-tekoha-sky shadow-card transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-tekoha-navy text-tekoha-gold flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform shadow-md">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-tekoha-navy">Posicionamiento & Soporte</span>
+                        <h3 class="font-heading font-bold text-lg text-tekoha-navy mt-1 mb-2.5">
+                            Identidad Digital, SEO Local y Capacitación
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
+                            Posicionamos tu marca en Google Maps y acompañamos presencialmente a tu equipo para asegurar el éxito operativo.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-teal"></i> Destacado en búsquedas de Itapúa</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-teal"></i> Entrenamiento a recepcionistas</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-tekoha-teal"></i> Mantenimiento técnico continuo</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-200/70">
+                        <span class="text-xs font-semibold text-tekoha-navy">Acompañamiento 100% cercano</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</main>
+    <!-- FOOTER INSTITUCIONAL (LOGO OFICIAL FONDO OSCURO) -->
+    <footer class="bg-tekoha-navyDark text-slate-400 py-12 border-t border-white/10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10 items-center">
+                
+                <!-- Logo Versión Oscura -->
+                <div class="md:col-span-5 space-y-3">
+                    <a href="index.html" class="inline-block" aria-label="Inicio - Tekoha Digital">
+                        <img src="logos/imagotipo para usar con fondo oscuro.png" 
+                             alt="Tekoha Digital - Tu destino, en un solo lugar" 
+                             class="h-12 sm:h-14 w-auto object-contain" />
+                    </a>
+                    <p class="text-xs text-slate-400 max-w-sm mt-2">
+                        “Tu destino, en un solo lugar.” — Soluciones tecnológicas con identidad local para la industria de la hospitalidad, gastronomía y entretenimiento en Encarnación e Itapúa.
+                    </p>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="md:col-span-4 flex flex-wrap gap-6 text-xs font-medium">
+                    <a href="index.html" class="hover:text-tekoha-sky transition-colors">Inicio</a>
+                    <a href="soluciones.html" class="hover:text-tekoha-sky transition-colors">Soluciones</a>
+                    <a href="demo.html" class="hover:text-tekoha-sky transition-colors">Demo en Vivo</a>
+                    <a href="calculadora.html" class="hover:text-tekoha-sky transition-colors">Calculadora ROI</a>
+                    <a href="nosotros.html" class="hover:text-tekoha-sky transition-colors">Nosotros</a>
+                    <a href="planes.html" class="hover:text-tekoha-sky transition-colors">Planes</a>
+                    <a href="contacto.html" class="hover:text-tekoha-sky transition-colors">Contacto</a>
+                </div>
+
+                <!-- Descriptor Comercial Regional -->
+                <div class="md:col-span-3 md:text-right text-xs space-y-1">
+                    <span class="text-tekoha-sky font-semibold block uppercase tracking-wider text-[11px]">FaCyT - UNI | Mercadotecnia</span>
+                    <span class="text-slate-400 block">Licenciatura en Informática Empresarial</span>
+                    <span class="text-slate-500 block text-[10px]">Encarnación, Itapúa – Paraguay</span>
+                </div>
+            </div>
+
+            <!-- Copyright y Firma -->
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 Tekoha Digital. Todos los derechos reservados. Hoteles · Hospedajes · Turismo · Tecnología.</p>
+                <div class="flex items-center space-x-4">
+                    <a href="nosotros.html" class="hover:text-slate-400 transition-colors">Identidad de Marca</a>
+                    <span class="text-white/20">•</span>
+                    <a href="contacto.html" class="hover:text-slate-400 transition-colors">Asistencia Local</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!-- MODAL DE CONFIRMACIÓN INTERACTIVA (SIN USAR ALERT) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-tekoha-navyDark/80 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border-2 border-tekoha-sky relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-16 h-16 rounded-2xl bg-tekoha-teal/15 text-tekoha-teal flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 id="modal-title" class="font-heading font-extrabold text-2xl text-tekoha-navy text-center">
+                ¡Reserva Directa Confirmada!
+            </h3>
+            <p id="modal-body" class="text-sm text-slate-600 text-center mt-2 leading-relaxed"></p>
+            <div id="modal-details" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 my-5 text-xs space-y-1.5 text-slate-700"></div>
+            <button onclick="closeModal()" class="w-full bg-tekoha-navy hover:bg-tekoha-sky text-white hover:text-tekoha-navy font-heading font-bold py-3 rounded-xl transition-colors text-sm">
+                Entendido, continuar explorando
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS INTERACTIVOS (CALCULADORA, DEMO DE RESERVAS Y MENÚ) -->
+    
+    <!-- SCRIPTS COMUNES DE LA PLATAFORMA TEKOHA -->
+    <script>
+        // Control de Menú Móvil
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        // Modal Global Interactivo
+        function openModal(title, body, detailsHtml) {
+            const mTitle = document.getElementById('modal-title');
+            const mBody = document.getElementById('modal-body');
+            const mDetails = document.getElementById('modal-details');
+            const modal = document.getElementById('custom-modal');
+            if (mTitle) mTitle.textContent = title;
+            if (mBody) mBody.textContent = body;
+            if (mDetails) mDetails.innerHTML = detailsHtml || '';
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('custom-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // Formateador estándar de Guaraníes
+        function formatGs(amount) {
+            return 'Gs. ' + Math.round(amount).toLocaleString('es-PY');
+        }
+    </script>
+
+</body>
+</html>
