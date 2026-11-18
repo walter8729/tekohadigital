@@ -201,20 +201,7 @@
         <div class="absolute inset-0 z-0 bg-gradient-to-r from-tekoha-navyDark/90 via-tekoha-navy/70 to-tekoha-teal/25"></div>
         <div class="absolute inset-0 z-0 bg-gradient-to-t from-tekoha-navyDark/80 via-transparent to-tekoha-navyDark/30"></div>
 
-        <!-- Selector interactivo de fotografías de fondo en la esquina superior derecha -->
-        <div class="absolute top-4 right-4 sm:right-8 z-20 hidden sm:flex items-center gap-1.5 bg-tekoha-navyDark/75 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full text-[11px] text-slate-200 shadow-lg">
-            <i class="fa-solid fa-camera text-tekoha-sky mr-1"></i>
-            <span class="text-slate-300 font-medium mr-1">Vista de fondo:</span>
-            <button type="button" onclick="changeHeroPhoto(0, this)" class="hero-photo-btn px-2.5 py-0.5 rounded-full bg-tekoha-sky text-tekoha-navy font-bold transition-all">
-                Playa & Atardecer
-            </button>
-            <button type="button" onclick="changeHeroPhoto(1, this)" class="hero-photo-btn px-2.5 py-0.5 rounded-full hover:bg-white/10 text-slate-200 transition-all">
-                Bahía Costanera
-            </button>
-            <button type="button" onclick="changeHeroPhoto(2, this)" class="hero-photo-btn px-2.5 py-0.5 rounded-full hover:bg-white/10 text-slate-200 transition-all">
-                Resort & Piscina
-            </button>
-        </div>
+        
 
         <!-- CONTENIDO PRINCIPAL DEL HERO -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -482,30 +469,36 @@
     </script>
 
     <script>
+        // Transición dinámica automática de imágenes de fondo costeras
         const heroPhotos = [
             'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=85',
             'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1920&q=85',
             'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1920&q=85'
         ];
 
-        function changeHeroPhoto(index, btnEl) {
+        // Precarga de imágenes para transiciones instantáneas sin parpadeo
+        heroPhotos.forEach(src => {
+            const pre = new Image();
+            pre.src = src;
+        });
+
+        let currentPhotoIndex = 0;
+        function cycleHeroBackground() {
             const imgEl = document.getElementById('hero-bg-photo');
-            if (imgEl && heroPhotos[index]) {
-                imgEl.style.opacity = '0.3';
-                setTimeout(() => {
-                    imgEl.src = heroPhotos[index];
-                    imgEl.style.opacity = '0.85';
-                }, 180);
-            }
-            document.querySelectorAll('.hero-photo-btn').forEach(btn => {
-                btn.classList.remove('bg-tekoha-sky', 'text-tekoha-navy', 'font-bold');
-                btn.classList.add('text-slate-200');
-            });
-            if (btnEl) {
-                btnEl.classList.remove('text-slate-200');
-                btnEl.classList.add('bg-tekoha-sky', 'text-tekoha-navy', 'font-bold');
-            }
+            if (!imgEl) return;
+            currentPhotoIndex = (currentPhotoIndex + 1) % heroPhotos.length;
+            
+            // Efecto fade-out suave
+            imgEl.style.opacity = '0.35';
+            setTimeout(() => {
+                imgEl.src = heroPhotos[currentPhotoIndex];
+                // Efecto fade-in tras el cambio
+                imgEl.style.opacity = '0.85';
+            }, 600);
         }
+
+        // Cambio automático cada 6 segundos
+        setInterval(cycleHeroBackground, 6000);
     </script>
 
 </body>
