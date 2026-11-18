@@ -265,95 +265,50 @@
 
                 <!-- COLUMNA DERECHA: MOCKUP INTERACTIVO DE VISTA RÁPIDA -->
                 <div class="lg:col-span-5">
-                    <div class="relative mx-auto max-w-md lg:max-w-none">
-                        <!-- Efecto de luz de fondo -->
-                        <div class="absolute -inset-2 bg-gradient-to-r from-tekoha-sky to-tekoha-teal rounded-3xl blur-xl opacity-30"></div>
-                        
-                        <!-- Ventana Mockup estilo Laptop/App del Plan de Negocios -->
-                        <div class="relative bg-tekoha-navyDark/90 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
-                            <!-- Barra de navegador simulada -->
-                            <div class="bg-slate-900/90 px-4 py-3 flex items-center justify-between border-b border-white/10">
-                                <div class="flex space-x-2">
-                                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
-                                    <span class="w-3 h-3 rounded-full bg-amber-400"></span>
-                                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                                </div>
-                                <div class="bg-white/10 text-slate-300 text-[11px] px-3 py-1 rounded-full flex items-center gap-1.5">
-                                    <i class="fa-solid fa-lock text-tekoha-teal text-[10px]"></i>
-                                    <span>reservas.tu-hotel-encarnacion.com.py</span>
-                                </div>
-                                <span class="text-xs text-tekoha-sky font-semibold">PMV v1.0</span>
-                            </div>
+                    <div class="relative mx-auto max-w-lg lg:max-w-none">
+                        <!-- Resplandor de fondo con colores oficiales -->
+                        <div class="absolute -inset-2 bg-gradient-to-r from-tekoha-sky via-tekoha-teal to-tekoha-gold rounded-3xl blur-2xl opacity-40 animate-pulse"></div>
 
-                            <!-- Contenido interno del Mockup -->
-                            <div class="p-6 space-y-5">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <span class="text-[11px] uppercase tracking-wider text-tekoha-teal font-bold">Panel de Control Hotelero</span>
-                                        <h3 class="font-heading font-bold text-lg text-white">Costanera Resort & Posada</h3>
-                                    </div>
-                                    <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
-                                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Motor Activo
+                        <!-- Marco de Video Institucional HD estilo Pantalla Pro -->
+                        <div class="relative bg-tekoha-navyDark/95 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden group">
+                            <!-- Cabecera de reproductor -->
+                            <div class="bg-slate-900/90 px-4 py-3 flex items-center justify-between border-b border-white/10">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                                    <span class="text-xs font-mono text-slate-400 ml-2 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-play text-tekoha-teal text-[10px]"></i>
+                                        video-institucional.mp4
                                     </span>
                                 </div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-tekoha-teal/20 text-tekoha-teal border border-tekoha-teal/30">
+                                    Tekoha Digital HD
+                                </span>
+                            </div>
 
-                                <!-- Tarjeta de Reserva Directa Reciente -->
-                                <div class="bg-white/5 border border-white/10 rounded-xl p-4 space-y-3">
-                                    <div class="flex justify-between items-start">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 rounded-lg bg-tekoha-sky/20 text-tekoha-sky flex items-center justify-center font-bold">
-                                                <i class="fa-solid fa-bed"></i>
-                                            </div>
-                                            <div>
-                                                <p class="text-sm font-semibold text-white">Nueva Reserva Directa #TK-409</p>
-                                                <p class="text-xs text-slate-300">Suite Vista al Río Paraná • 3 Noches</p>
-                                            </div>
-                                        </div>
-                                        <span class="text-xs font-bold text-tekoha-gold bg-tekoha-gold/10 px-2.5 py-1 rounded-md border border-tekoha-gold/30">
-                                            Gs. 1.350.000
-                                        </span>
-                                    </div>
-                                    <div class="pt-2 border-t border-white/10 flex justify-between items-center text-xs">
-                                        <span class="text-slate-300"><i class="fa-solid fa-check-circle text-tekoha-teal mr-1"></i>Pago directo QR / Sipap</span>
-                                        <span class="text-emerald-400 font-semibold">Comisión Pagada: Gs. 0</span>
-                                    </div>
-                                </div>
+                            <!-- Contenedor del Video -->
+                            <div class="relative aspect-video bg-black overflow-hidden flex items-center justify-center">
+                                <video 
+                                    id="institucional-video"
+                                    class="w-full h-full object-cover"
+                                    poster="video/poster.jpg"
+                                    preload="metadata"
+                                    playsinline
+                                    controls
+                                    loop>
+                                    <source src="video/institucional.mp4" type="video/mp4">
+                                    Tu navegador no soporta la reproducción de video HTML5.
+                                </video>
+                            </div>
 
-                                <!-- Mini gráfico de crecimiento -->
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div class="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                                        <p class="text-xs text-slate-400">Reservas Directas Web</p>
-                                        <div class="flex items-baseline gap-2 mt-1">
-                                            <span class="font-heading font-bold text-2xl text-white">78%</span>
-                                            <span class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-arrow-trend-up"></i> +28%</span>
-                                        </div>
-                                    </div>
-                                    <div class="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                                        <p class="text-xs text-slate-400">Ahorro Mensual OTAs</p>
-                                        <div class="flex items-baseline gap-2 mt-1">
-                                            <span class="font-heading font-bold text-xl text-tekoha-gold">Gs. 4.8M</span>
-                                            <span class="text-[11px] text-tekoha-sky">Neto</span>
-                                        </div>
-                                    </div>
+                            <!-- Barra inferior de información corporativa -->
+                            <div class="bg-slate-900/90 px-4 py-3 border-t border-white/10 flex items-center justify-between text-xs">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                                    <span class="text-slate-300 font-medium">Soluciones Web & Reservas Directas</span>
                                 </div>
-
-                                <!-- Los 3 Pilares del Imagotipo en miniatura -->
-                                <div class="bg-gradient-to-r from-tekoha-navy to-slate-900 border border-tekoha-sky/30 rounded-xl p-3.5 flex items-center justify-around text-center">
-                                    <div>
-                                        <i class="fa-solid fa-house-chimney text-tekoha-sky text-base"></i>
-                                        <p class="text-[10px] font-bold uppercase tracking-wider text-slate-300 mt-1">Hogar</p>
-                                    </div>
-                                    <div class="h-6 w-px bg-white/15"></div>
-                                    <div>
-                                        <i class="fa-solid fa-water text-tekoha-teal text-base"></i>
-                                        <p class="text-[10px] font-bold uppercase tracking-wider text-slate-300 mt-1">Turismo</p>
-                                    </div>
-                                    <div class="h-6 w-px bg-white/15"></div>
-                                    <div>
-                                        <i class="fa-solid fa-microchip text-tekoha-gold text-base"></i>
-                                        <p class="text-[10px] font-bold uppercase tracking-wider text-slate-300 mt-1">Tecnología</p>
-                                    </div>
-                                </div>
+                                <span class="text-tekoha-gold font-semibold">Encarnación e Itapúa</span>
                             </div>
                         </div>
                     </div>
