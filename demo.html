@@ -479,15 +479,23 @@
         const demoHuespedes = document.getElementById('demo-huespedes');
         const demoExtra = document.getElementById('demo-extra');
 
-        function selectRoom(cardEl, name, price) {
+        function selectRoom(name, price, cardEl) {
             currentRoomName = name;
-            currentRoomPrice = price;
+            currentRoomPrice = typeof price === 'number' ? price : (parseInt(price, 10) || 420000);
+
+            // Si por algún motivo cardEl se pasa en diferente orden o no viene definido:
+            const element = (cardEl instanceof HTMLElement) ? cardEl : (typeof name === 'object' && name instanceof HTMLElement ? name : null);
+
             document.querySelectorAll('.room-card').forEach(c => {
-                c.classList.remove('border-tekoha-sky', 'ring-2', 'ring-tekoha-sky', 'bg-tekoha-sky/5');
-                c.classList.add('border-slate-200');
+                c.classList.remove('border-tekoha-sky', 'ring-2', 'ring-tekoha-sky', 'bg-sky-50/40');
+                c.classList.add('border-slate-200', 'bg-white');
             });
-            cardEl.classList.remove('border-slate-200');
-            cardEl.classList.add('border-tekoha-sky', 'ring-2', 'ring-tekoha-sky', 'bg-tekoha-sky/5');
+
+            if (element) {
+                element.classList.remove('border-slate-200', 'bg-white');
+                element.classList.add('border-tekoha-sky', 'ring-2', 'ring-tekoha-sky', 'bg-sky-50/40');
+            }
+
             updateBookingSummary();
         }
 
@@ -509,11 +517,12 @@
         function updateBookingSummary() {
             if (!demoCheckin || !demoCheckout) return;
             const noches = getNightsCount();
-            const huespedes = demoHuespedes ? demoHuespedes.value : '2 Adultos';
-            const extraCost = demoExtra ? parseInt(demoExtra.value, 10) : 0;
-            const extraText = demoExtra ? demoExtra.options[demoExtra.selectedIndex].text : '';
+            const huespedes = (demoHuespedes && demoHuespedes.value) ? demoHuespedes.value : '2 Adultos';
+            const extraCost = (demoExtra && !isNaN(parseInt(demoExtra.value, 10))) ? parseInt(demoExtra.value, 10) : 0;
+            const extraText = (demoExtra && demoExtra.selectedIndex >= 0) ? demoExtra.options[demoExtra.selectedIndex].text : 'Desayuno Buffet (Incluido)';
 
-            const total = (currentRoomPrice * noches) + extraCost;
+            const roomRate = (typeof currentRoomPrice === 'number' && !isNaN(currentRoomPrice)) ? currentRoomPrice : 420000;
+            const total = (roomRate * noches) + extraCost;
             const savedCommission = total * 0.18;
             const otaNet = total - savedCommission;
 
